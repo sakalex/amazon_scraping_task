@@ -6,11 +6,11 @@
 
 Скопируйте содержимое репозитория в папку на компьютере.
 
-`git clone https://github.com/SokolDuck/amazone_scraping_task`
+`git clone https://github.com/SokolDuck/amazon_scraping_task`
 
 Откройте терминал(PowerShel для Windows) в папке с файлами.
 
-`cd amazone_scraping_task`
+`cd amazon_scraping_task`
 
 Запустите последоватльно команды: 
 1. Для Windows  
