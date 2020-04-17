@@ -14,21 +14,23 @@ from constants import (
     DEFAULT_AMAZON_SELLER_ID,
     SELLER_URL_REGEX,
     OFFER_LISTING_URL_TEMPLATE,
-    ITEM_PER_PAGE
+    ITEM_PER_PAGE,
+    MAX_REQUEST_RETRY
 )
 
 
 def get_soup(domain: str, asin: str, page_num: int = 1) -> BeautifulSoup:
     ol_page_url = OFFER_LISTING_URL_TEMPLATE.format(domain, asin, page_num, (page_num - 1) * ITEM_PER_PAGE)
 
-    try:
-        page = urlopen(ol_page_url)
-    except HTTPError as e:
-        if e.code == 503:
-            sleep(10)
+    for _ in range(MAX_REQUEST_RETRY):
+        try:
             page = urlopen(ol_page_url)
-        else:
-            raise e
+            break
+        except HTTPError as e:
+            if e.code == 503:
+                sleep(10)
+            else:
+                raise e
 
     return BeautifulSoup(page, features="html.parser")
 
