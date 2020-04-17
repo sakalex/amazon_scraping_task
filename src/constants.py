@@ -13,4 +13,6 @@ OFFER_LISTING_URL_TEMPLATE = "{}/gp/offer-listing/{}/ref=olp_page_{}?ie=UTF8&sta
 # template use PRODUCT_URL_TEMPLATE.format(domain, asin, seller)
 PRODUCT_URL_TEMPLATE = "{}/dp/{}?m={}\n"
 
+DEFAULT_AMAZON_SELLER_ID = "A3P5ROKL5A1OLE"
+
 ITEM_PER_PAGE = 10
