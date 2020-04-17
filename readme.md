@@ -18,14 +18,14 @@
  - `python -m venv env`
  - `.\env\Scripts\activate.bat`
  - `pip install -r requirements.txt`
- - `python main.py`
+ - `python src\main.py`
  - `.\env\Scripts\deactivate.bat`
 2. Для Linux  
-  - `pip3 install virtualenv`
+  - `apt-get install python3-venv`
   - `python3 -m venv env`
   - `source env/bin/activate`
   - `pip3 install -r requirements.txt`
-  - `python3 main.py`
+  - `python3 src/main.py`
   
 После удачного завершения выполнения программы в конволь выведится надпись "Task ended."
 
