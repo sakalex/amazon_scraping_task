@@ -7,7 +7,7 @@ from urllib.request import urlopen
 import regex
 from bs4 import BeautifulSoup, Tag
 
-from src.constants import (
+from constants import (
     START_URL_REGEX,
     START_URL,
     PRODUCT_URL_TEMPLATE,
@@ -80,7 +80,7 @@ if __name__ == "__main__":
     else:
         page_count = 1
 
-    os.chdir(os.path.join("..", "files"))
+    os.chdir("files")
 
     with open(file_name, "w") as file:
         for page_num in range(page_count):
@@ -93,6 +93,6 @@ if __name__ == "__main__":
             if links_list:
                 file.writelines(links_list)
 
-    os.chdir(os.path.join("..", "src"))
+    os.chdir("..")
 
     print("Task ended.")
