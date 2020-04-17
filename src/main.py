@@ -37,7 +37,8 @@ def get_soup(domain: str, asin: str, page_num: int = 1) -> BeautifulSoup:
 
 def get_seller_id(href: str) -> Optional[str]:
     match = regex.findall(SELLER_URL_REGEX, href)
-    return match[0] if match else ''
+
+    return match[0] if match else ""
 
 
 def extract_href(tag: Tag) -> str:
@@ -51,10 +52,7 @@ def get_product_links(soup: BeautifulSoup) -> List[str]:
     products_href = []
 
     for href in map(extract_href, rows):
-        if href:
-            seller_id = get_seller_id(href)
-        else:
-            seller_id = DEFAULT_AMAZON_SELLER_ID
+        seller_id = get_seller_id(href) or DEFAULT_AMAZON_SELLER_ID
 
         if seller_id:
             products_href.append(PRODUCT_URL_TEMPLATE.format(domain, asin, seller_id))
